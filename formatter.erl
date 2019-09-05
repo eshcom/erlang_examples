@@ -10,8 +10,6 @@ str_to_arr(Str) ->
 	lists:sort([list_to_integer(X) ||
 		X <- string:tokens(binary_to_list(Str), ",")]).
 	
-gen_range_list(CurrElem, []) ->
-	[[CurrElem]];
 gen_range_list(CurrElem, [[PrevElem | TailRange] | Stack])
 		when CurrElem == PrevElem + 1 ->
 	if length(TailRange) == 0 ->
